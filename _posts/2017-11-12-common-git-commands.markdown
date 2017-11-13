@@ -1,10 +1,10 @@
-`show remotes
+- show remotes
 git remote -v
 
-`inspect a remote
+- inspect a remote
 git remote show <remote>
 
-`fetch from remotes
+- fetch from remotes
 git fetch <remote>
 
 
