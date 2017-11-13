@@ -5,6 +5,6 @@
 *git remote show \<remote\>
 
 ### fetch from remotes
-*git fetch <remote>
+*git fetch \<remote\>
 
 
