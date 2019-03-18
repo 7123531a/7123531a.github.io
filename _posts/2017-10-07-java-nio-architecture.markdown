@@ -1,3 +1,3 @@
 
-![java nio class diagram](images/java-nio.svg)
+![java nio class diagram](https://7123531a.github.io/images/java-nio.svg)
 
