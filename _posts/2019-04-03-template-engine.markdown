@@ -1,6 +1,6 @@
 Apache Velocity is a great template parsing tool. it can be used to generate source code based on template.
 
-usage pattern:
+Usage pattern:
 
 ```java
 
