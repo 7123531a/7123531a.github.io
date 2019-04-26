@@ -46,6 +46,7 @@ private static void loadManagementAgent(VirtualMachine vm) throws IOException {
 ```
 # 2. Agent implementation requirements
 * command-line interface
+
 The agent class must implement a public static premain method similar in principle to the main application entry point.
 The premain method has one of two possible signatures. The JVM first attempts to invoke the following method on the agent class:
 ```java
@@ -56,6 +57,7 @@ If the agent class does not implement this method then the JVM will attempt to i
 public static void premain(String agentArgs);
 ```
 * Starting Agents After VM Startup
+
 The agent class must implement a public static agentmain method similar in principle to the main application entry point.
 The agentmain method has one of two possible signatures. The JVM first attempts to invoke the following method on the agent class:
 ```java
