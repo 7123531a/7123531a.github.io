@@ -1,12 +1,13 @@
-[java agent description!](https://docs.oracle.com/javase/8/docs/api/java/lang/instrument/package-summary.html)
+[java agent javadoc](https://docs.oracle.com/javase/8/docs/api/java/lang/instrument/package-summary.html)
 
 There are two ways to start agent.
 * command-line interface
-    **-javaagent:**jarpath[=options]
+
+**-javaagent:**jarpath[=options]
     
 * Starting Agents After VM Startup
 
-An implementation provides a mechanism to start agents sometime after the VM started. see below sample to load management agent after VM has started.
+An implementation may provide a mechanism to start agents sometime after the VM started. see below sample to load management agent after VM has started.
 
 ```java
 private static void loadManagementAgent(VirtualMachine vm) throws IOException {
@@ -40,6 +41,4 @@ private static void loadManagementAgent(VirtualMachine vm) throws IOException {
             throw ioe;
         }
     }
-
-
 ```
