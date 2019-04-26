@@ -67,6 +67,9 @@ If the agent class does not implement this method then the JVM will attempt to i
 ```java
 public static void agentmain(String agentArgs);
 ```
+
+Each agent is passed its agent options via the **agentArgs** parameter. The agent options are passed as a single string, any additional parsing should be performed by the agent itself.
+
 # 3. Manifest Attributes
 
 The manifest of the agent jar must contains the attribute either **Premain-Class** or **Agent-Class**, or both.
