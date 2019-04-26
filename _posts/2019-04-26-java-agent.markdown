@@ -1,5 +1,6 @@
 [Java Agent Javadoc](https://docs.oracle.com/javase/8/docs/api/java/lang/instrument/package-summary.html)
 
+1. start agent
 There are two ways to start agent.
 * command-line interface
 
@@ -43,7 +44,7 @@ private static void loadManagementAgent(VirtualMachine vm) throws IOException {
     }
 ```
 
-Manifest Attributes
+2. Manifest Attributes
 
 The manifest of the agent jar must contains the attribute either **Premain-Class** or **Agent-Class**, or both.
 When the agent is started on the command-line using the **-javaagent** option then the **Premain-Class** attribute specifies the name of the agent class and the **Agent-Class** attribute is ignored. Similarly, if the agent is started sometime after the VM has started, then the **Agent-Class** attribute specifies the name of the agent class (the value of **Premain-Class** attribute is ignored).
