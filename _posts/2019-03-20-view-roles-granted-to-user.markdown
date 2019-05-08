@@ -1,5 +1,5 @@
-`SELECT * FROM user_ROLE_PRIVS;`
 ```sql
+SELECT * FROM user_ROLE_PRIVS;
 select * from DBA_SYS_PRIVS;
 select * from DBA_TAB_PRIVS;
 select * from  role_sys_privs;
