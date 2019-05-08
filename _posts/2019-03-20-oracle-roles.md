@@ -2,7 +2,7 @@
 ```sql
 SELECT * FROM user_ROLE_PRIVS;
 ```
-# check roles assigned to priviledges
+# check priviledges assigned to roles
 ```sql
 select * from DBA_SYS_PRIVS;
 select * from DBA_TAB_PRIVS;
