@@ -1,4 +1,4 @@
-## how to find blocking session
+## How to find blocking session
 
 ```sql
 SELECT s.sid, S.BLOCKING_SESSION, S.FINAL_BLOCKING_SESSION
@@ -7,7 +7,7 @@ SELECT s.sid, S.BLOCKING_SESSION, S.FINAL_BLOCKING_SESSION
  exists( select 1 from v$session s2 where S2.BLOCKING_SESSION = S.SID );
 ```
 
-## kill session
+## Kill session
 
 ```sql
 select sid,serial# from v$session sid in (...) --查询产生阻塞用户的 sid,serial#,然后
