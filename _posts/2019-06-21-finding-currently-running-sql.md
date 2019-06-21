@@ -31,6 +31,8 @@ select sess_io.sid,
 ```
 ## Here is the sql to show full sql text if the length of the full sql text is larger than 1000 characters
 
+**sql_fulltext** in v$sqlarea could be used to show full sql text
+       
 ```sql
 select sesion.sid,
        sql_text
