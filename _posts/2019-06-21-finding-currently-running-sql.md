@@ -11,9 +11,10 @@ select sesion.sid,
        cpu_time,
        elapsed_time,
        sql_text
-  from v$sqlarea sqlarea, v$session sesion
- where sesion.sql_hash_value = sqlarea.hash_value
-   and sesion.sql_address    = sqlarea.address
+       --sql_fulltext
+  from v$sql sql, v$session sesion
+ where sesion.sql_hash_value = sql.hash_value
+   and sesion.sql_address    = sql.address
    and sesion.username is not null 
 ```
 ## IO being done by active sessions
@@ -29,16 +30,4 @@ select sess_io.sid,
  where sesion.sid = sess_io.sid
    and sesion.username is not null 
 ```
-## Here is the sql to show full sql text if the length of the full sql text is larger than 1000 characters
 
-**sql_fulltext** in v$sqlarea could be used to show full sql text
-       
-```sql
-select sesion.sid,
-       sql_text
-  from v$sqltext sqltext, v$session sesion
- where sesion.sql_hash_value = sqltext.hash_value
-   and sesion.sql_address    = sqltext.address
-   and sesion.username is not null
- order by sqltext.piece 
- ```
