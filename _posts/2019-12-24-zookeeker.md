@@ -27,12 +27,12 @@ ephemeral node在下面两种情况下会被删掉
 2. 其他client发送delete指令删除
 
 ## API
-create /path data
-delete /path
-exists /path
-set /path data
-getData /path 
-getChildren /path
+1. create /path data
+2. delete /path
+3. exists /path
+4. set /path data
+5. getData /path 
+6. getChildren /path
 
 zookeeper 对znode数据的读写是原子性的，或者成功或者失败。
 ## watch and notification
