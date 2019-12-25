@@ -38,7 +38,7 @@ zookeeper 对znode数据的读写是原子性的，或者成功或者失败。
 ## watch and notification
 为了能够感知到znode的变化， zookeeper支持在znode上设置watch来接收数据变化的通知。watch是一次性的，一旦watch被触发， watch就会从znode上移除。如果要继续监听，需要重新注册。
 
-##version
+## version
 每一个znode都有个version与之相关联，每次znode数据变化，version也会随着改变。zookeeper利用这个特性来解决多个client并发更新同一个znode的问题。
 
-##zookeeper架构
+## zookeeper架构
