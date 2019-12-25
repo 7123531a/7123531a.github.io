@@ -42,3 +42,13 @@ zookeeper 对znode数据的读写是原子性的，或者成功或者失败。
 每一个znode都有个version与之相关联，每次znode数据变化，version也会随着改变。zookeeper利用这个特性来解决多个client并发更新同一个znode的问题。
 
 ## zookeeper架构
+
+## session
+
+session offers order guarantee, which means the requests in one session are executed in FIFO order.
+
+### session state
+not connected
+connecting
+connected
+closed
