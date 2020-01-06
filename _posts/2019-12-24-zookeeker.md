@@ -52,3 +52,8 @@ not connected
 connecting
 connected
 closed
+
+## server state
+1. looking for a leader
+2. leading
+3. following
