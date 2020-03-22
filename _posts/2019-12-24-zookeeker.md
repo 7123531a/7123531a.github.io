@@ -10,11 +10,13 @@ zookeeper提供可靠的分布式协调服务，其本身也是分布式的，�
 
 zookeeper受文件系统启发，其模型类似于文件系统。
 
+```java
 /
 |-----/Master
 |-----/Workers
          |-----worker1
          |-----worker2
+```
 
 每个节点称之为znode，每个节点都可以关联数据也可以拥有子节点。 有四种类型的节点类型
 1. persistent
