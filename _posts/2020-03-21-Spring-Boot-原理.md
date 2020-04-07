@@ -3,7 +3,7 @@ Spring Boot是有大名鼎鼎的Spring Framework的开发者设计的，旨在�
 
 # Spring Boot特性
 1. 创建可以直接运行的独立的应用程序
-2. 可以直接内嵌应用服务器到应用程序中，无需生成war包部署到应用服务器中，简化了web应用的部署和测试。
+2. 可以直接内嵌应用服务器到应用程序中，无需生成war包部署到应用服务器中，简化了web应用的开发、部署和测试。
 3. 引入了自动配置机制。
 
 # Spring Boot 设计原则
@@ -72,11 +72,11 @@ public class DemoApplication {
 
 # Spring Boot是如何简化Spring 开发的
 
-## 自动创建Application Context
+## 自动创建Spring ApplicationContext
 
-创建Spring应用， 首先要创建对应的Application Context。Spring Boot根据classpath下的jar包会自动推断创建什么类型的Application Context。开发者只需管理好项目的依赖即可。
+创建Spring应用， 首先要创建对应的Application Context。Spring Boot根据classpath下的jar包会自动推断创建什么类型的ApplicationContext，开发者只需引入正确的依赖即可。
 
-## Spring Boot 如何加载Bean Definition到Application Context
+## Spring Boot 如何加载Bean Definition到ApplicationContext
 
 从应用的入口`main`方法开始来看Spring Boot如何加载Bean Definition的。
 
@@ -154,10 +154,10 @@ com
              +- OrderRepository.java
 ```
 
-`@SpringBootApplication`注解标记在`Application.java`上，这样所有的`@Configuration`和`@Component`都能被识别到，然后加载到`ApplicationContext`。
+`@SpringBootApplication`注解标记在`Application.java`上，这样所有的`@Configuration`和`@Component`都能被识别到，然后加载到`ApplicationContext`，这也体现了约定大于配置的原则。
 
 ## 自动配置
-
+自动配置的含义就是一旦启用自动配置，一些Bean会自动的加载到ApplicationContext，供其他Bean来使用。
 Spring Boot 自动配置的秘密都在`EnableAutoConfiguration`这里，正如该注解名字所揭示的，它是用来启用自动配置的。
 
 ```java
@@ -186,7 +186,7 @@ org.mybatis.spring.boot.autoconfigure.MybatisLanguageDriverAutoConfiguration,\
 org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration
 
 ```
-# Spring Boot 加载流程
+# Spring Boot 加载过程
 
 ```java
 public ConfigurableApplicationContext run(String... args) {
@@ -245,5 +245,47 @@ public ConfigurableApplicationContext run(String... args) {
 	}
 ```
 
-# 如何扩展Spring Boot
+# Spring Boot事件机制
 
+在Spring Boot的加载过程中，SpringApplicationRunListener贯穿其中。每一个阶段完成之后就会通知SpringApplicationRunListener。
+SpringApplicationRunListener中定义了Spring Boot加载的几个阶段，如下：
+1. starting
+2. environmentPrepared
+3. contextPrepared
+4. contextLoaded
+5. started
+6. running
+7. failed
+
+SpringApplicationRunListener的具体实现是EventPublishingRunListener。
+```java
+org.springframework.boot.SpringApplicationRunListener=\
+org.springframework.boot.context.event.EventPublishingRunListener
+```
+在加载过程的每一阶段，EventPublishingRunListener都会把当前阶段进行封装成ApplicationEvent，然后publish出去。这样`ApplicationEvent`的监听者`ApplciationListener`就可以参与SpringBoot的加载过程来实现任何想要实现的功能。
+
+为了能够监听到Spring Boot加载的每一个阶段，Spring Boot 从META-INF/spring.factories中加载ApplicationListener，而不是从Spring ApplicationContext中获取到ApplicationListener，因为ApplicationContext中的ApplicationListener加载的比较晚。
+
+```java
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+org.springframework.boot.ClearCachesApplicationListener,\
+org.springframework.boot.builder.ParentContextCloserApplicationListener,\
+org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor,\
+org.springframework.boot.context.FileEncodingApplicationListener,\
+org.springframework.boot.context.config.AnsiOutputApplicationListener,\
+org.springframework.boot.context.config.ConfigFileApplicationListener,\
+org.springframework.boot.context.config.DelegatingApplicationListener,\
+org.springframework.boot.context.logging.ClasspathLoggingApplicationListener,\
+org.springframework.boot.context.logging.LoggingApplicationListener,\
+org.springframework.boot.liquibase.LiquibaseServiceLocatorApplicationListener
+```
+Spring Boot本身就是利用这个机制来实现了application.properties的加载，参见`ConfigFileApplicationListener`
+
+# Spring Boot Starter
+
+Starter有两个作用，
+1. 引入合适的依赖到项目中
+2. 自动配置
+
+例如项目中决定使用mybatis，就可以引入mybatis starter到项目中，这样mybatis的依赖会自动添加到项目中。使用mybatis，`SqlSessionFactory`是必不可少的, Spring Boot的自动配置机制会自动加载`SqlSessionFactory`到ApplicationContext中。
