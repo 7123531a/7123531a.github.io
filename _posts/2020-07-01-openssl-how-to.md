@@ -1,5 +1,6 @@
 # abbreviation
 PEM = privary enhanced electronic mail
+
 pkcs #12 = public key cryptography standard #12
 
 # generate a 2048 bit RSA private key
