@@ -91,7 +91,8 @@ public class JDKSerializer {
 
 ```
 Java 本身提供了`ObjectOutputStream/ObjectInputStream`来序列化和反序列对象，只要对象实现`Serializable`标记接口。
-优点是简单，不需要很多额外的工作，缺点是序列化后的数据不够精简。将会另写一篇文章来描述为何序列后的数据大。
+
+优点是简单，不需要很多额外的工作，缺点是只适用Java平台，不能跨平台，序列化后的数据不够精简。将起另一篇文章来描述为何序列后的数据大。
 
 ### 自定义序列化
 
