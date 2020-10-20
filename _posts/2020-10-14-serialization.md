@@ -98,7 +98,7 @@ Java 本身提供了`ObjectOutputStream/ObjectInputStream`来序列化和反序�
 
 #### 文本格式 - Json
 
-Restful 风格的API, 数据的载体通常是Json。
+Restful 风格的API, 数据的载体通常是Json。优点是易读，容易调试，API的调用端很容易看到返回的数据是什么，缺点还是不够精简。例如age是个整型，但是用json的时候，它被转换为字符串，占用更多的空间。
 
 ```javascript
 {
@@ -110,4 +110,4 @@ Restful 风格的API, 数据的载体通常是Json。
 
 #### Binary格式 - google protobuf
 
-文本格式json的好处是易读易处理，但是还是不够精简，为了追求更高的效率，binary格式就诞生了。如何使用google protobuf就不展开了， 但他的原理就是， 还以前面的Person为例，序列化后的字节序列前几个字节表示name，后面的字节表示age，没有额外的空间浪费。
+为了追求更高的效率，binary格式就诞生了。google protobuf就是一种binary格式，具体就不展开了， 但他的原理就是， 还以前面的Person为例，序列化后的字节序列前几个字节表示name，后面的字节表示age。用binary格式时，age就可以用四个字节来表示，但是用文本时，他就会占用更多的空间。
