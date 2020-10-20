@@ -96,4 +96,18 @@ Java 本身提供了`ObjectOutputStream/ObjectInputStream`来序列化和反序�
 
 ### 自定义序列化
 
-未完待续
+#### 文本格式 - Json
+
+Restful 风格的API, 数据的载体通常是Json。
+
+```javascript
+{
+    name: "eric",
+    age: 10
+}
+
+```
+
+#### Binary格式 - google protobuf
+
+文本格式json的好处是易读易处理，但是还是不够精简，为了追求更高的效率，binary格式就诞生了。如何使用google protobuf就不展开了， 但他的原理就是， 还以前面的Person为例，序列化后的字节序列前几个字节表示name，后面的字节表示age，没有额外的空间浪费。
