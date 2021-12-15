@@ -1,5 +1,5 @@
 # what is zookeeper
-zookeeper提供可靠的分布式协调服务，其本身也是分布式的，来避免单点失败。可以利用zookeeper提供的协调功能来实现诸如选择Master server， 管理配置信息。
+zookeeper为分布式应用提供可靠的协调服务，其本身也是分布式的，来避免单点失败。zookeeper提供了一些简单的原语，分布式应用利用这些原语来实现诸如leader选举， 配置管理，分布式锁等。
 
 # zookeeper mission
 现在的大部分系统都是分布式的， 需要依靠各个组件的相互合作来实现功能。zookeeper的目标就是提供一个易于使用的模型来帮助开发人员来解决组件之间的协调问题， 让开发人员的精力更多的关注在业务逻辑。
@@ -43,17 +43,34 @@ zookeeper 对znode数据的读写是原子性的，或者成功或者失败。
 ## version
 每一个znode都有个version与之相关联，每次znode数据变化，version也会随着改变。zookeeper利用这个特性来解决多个client并发更新同一个znode的问题。
 
+```bash
+[zk: localhost:2181(CONNECTED) 9] stat /hello
+cZxid = 0x2
+ctime = Wed Dec 15 21:23:37 CST 2021
+mZxid = 0x2
+mtime = Wed Dec 15 21:23:37 CST 2021
+pZxid = 0x2
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 0
+numChildren = 0
+```
+
 ## zookeeper架构
+
+![zookeeper architecture](../images/zookeeper/zkservice.jpg)
 
 ## session
 
 session offers order guarantee, which means the requests in one session are executed in FIFO order.
 
 ### session state
-not connected
-connecting
-connected
-closed
+1. not connected
+2. connecting
+3. connected
+4. closed
 
 ## server state
 1. looking for a leader
