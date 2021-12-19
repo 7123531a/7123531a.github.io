@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-12-19T12:05:23.062Z" agent="5.0 (X11)" etag="sKC3ijJFz055l4tg0QsG" version="16.0.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-12-19T12:06:03.182Z" agent="5.0 (X11)" etag="pIFHbOJMCg0BEXG8_ZAn" version="16.0.0" type="github">
   <diagram id="K_8tTAwabGrNAI0qsq2V" name="Page-1">
     <mxGraphModel dx="1350" dy="1863" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -64,7 +64,7 @@
         <mxCell id="gX_tS0gkBQfEGyVwR0J8-2" value="&lt;div&gt;2. go ask com top level domain server&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=-60;" vertex="1" parent="1">
           <mxGeometry x="503.15" y="80" width="98.68" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="gX_tS0gkBQfEGyVwR0J8-3" value="3. what&#39;s the ip address for www.baidu.com" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;" vertex="1" parent="1">
+        <mxCell id="gX_tS0gkBQfEGyVwR0J8-3" value="3. what&#39;s the ip address for www.google.com" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;" vertex="1" parent="1">
           <mxGeometry x="484.8" y="150" width="115.2" height="30" as="geometry" />
         </mxCell>
         <mxCell id="gX_tS0gkBQfEGyVwR0J8-4" value="&lt;div&gt;4. go ask google.com domain server&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=0;" vertex="1" parent="1">
