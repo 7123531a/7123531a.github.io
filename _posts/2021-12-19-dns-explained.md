@@ -11,3 +11,11 @@
 ### DNS alternatives
 
 static host file `/etc/hosts`
+
+### check real dns server
+
+resolvectl status
+
+### local dns config
+
+/etc/resolv.conf
