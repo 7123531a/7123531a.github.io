@@ -73,10 +73,11 @@ Display the route taken for IP 10.10.1.4:
 
 [root@server ~]# ip route get 10.10.1.4
 
-ifconfig
+## ifconfig
 
 The ifconfig command was/is a staple in many sysadmin's tool belt for configuring and troubleshooting networks. It has since been replaced by the ip command discussed above. However, if you would like more information on it, check out our previously published article here.
-mtr
+
+## mtr
 
 MTR (Matt's traceroute) is a program with a command-line interface that serves as a network diagnostic and troubleshooting tool. This command combines the functionality of the ping and traceroute commands. Just like a traceroute, the mtr command will show the route from a computer to a specified host. mtr provides a lot of statistics about each hop, such as response time and percentage. With the mtr command, you will get more information about the route and be able to see problematic devices along the way. If you see a sudden increase in response time or packet loss, then obviously, there is a bad link somewhere.
 
@@ -134,9 +135,7 @@ Print to XML output:
 
 [root@server ~]# mtr –xml google.com
 
-tcpdump
-
- 
+## tcpdump
 
 The tcpdump command is designed for capturing and displaying packets.
 
@@ -212,7 +211,7 @@ To capture all port except port 80 and 25,
 
 [root@server ~]# tcpdump -i eth0 port not 53 and not 25
 
-netstat
+## netstat
 
 The netstat tool for printing network connections, routing tables, interface statistics, masquerade connections, and multicast memberships. This utility is part of the net-tool package, as is ifconfig. In the new iproute2 package, the ss tool is used to achieve the same objectives.
 
@@ -276,7 +275,7 @@ To find a process that is using a particular port number, run:
 
 [root@server ~]# netstat -an | grep ‘:<port number>’
 
-nslookup
+## nslookup
 
 Use the nslookup utility to query Internet name servers interactively. Use it to perform DNS queries and receive domain names or IP addresses, or any other specific DNS records.
 
@@ -306,7 +305,7 @@ Checking DNS A records to see the IPs of a domain is a common practice, but some
 
 [root@server ~]# nslookup 10.20.30.40
 
-ping
+## ping
 
 Ping is a tool that verifies IP-level connectivity to another TCP/IP computer by sending Internet Control Message Protocol (ICMP) Echo Request messages. The receipt of corresponding Echo Reply messages is displayed, along with round-trip times. Ping is the primary TCP/IP command used to troubleshoot connectivity, reachability, and name resolution.
 
