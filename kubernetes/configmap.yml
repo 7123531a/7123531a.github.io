@@ -4,7 +4,7 @@ metadata:
   name: common
 data:
   db-name: eric
-  db-port: 888
+  db-port: '888'
   kafka: |
     broker.url=aaa
     broker.consumergroup=ConfigMap
