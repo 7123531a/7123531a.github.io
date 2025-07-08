@@ -1,0 +1,10 @@
+
+
+minikube start \
+  --docker-env HTTP_PROXY=http://$(hostname -I | awk '{print $1}'):20171 \
+  --docker-env HTTPS_PROXY=http://$(hostname -I | awk '{print $1}'):20171 \
+  --docker-env NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.59.0/24,192.168.49.0/24,192.168.39.0/24
+
+minikube stop
+
+minikube delete
